@@ -41,7 +41,7 @@ def render_elevenlabs_orb():
         return
         
     html_code = f"""
-    <div style="height: 600px; width: 400px; display: flex; justify-content: flex-end; padding: 5px;">
+    <div style="display: flex; justify-content: flex-end; padding: 5px;">
         <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
         <elevenlabs-convai agent-id="{ELEVENLABS_AGENT_ID}"></elevenlabs-convai>
     </div>
@@ -49,6 +49,7 @@ def render_elevenlabs_orb():
         body {{ background-color: transparent !important; }}
     </style>
     """
-    st.html(html_code)
+    # Use components.v1 for JS widget execution, give it enough height for the popup to open
+    st.components.v1.html(html_code, height=600, width=400)
 
 render_elevenlabs_orb()
