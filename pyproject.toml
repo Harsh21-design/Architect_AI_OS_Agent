@@ -1,0 +1,15 @@
+[project]
+name = "ai-business-os-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.141.1",
+    "python-dotenv>=1.2.3",
+    "requests>=2.34.2",
+    "streamlit>=1.61.1",
+    "stripe>=15.5.0",
+    "supabase>=2.31.0",
+    "uvicorn>=0.52.3",
+]
