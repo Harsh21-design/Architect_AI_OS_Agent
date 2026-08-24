@@ -33,9 +33,7 @@ with st.sidebar:
 st.title("Workspace Hub")
 st.subheader("💬 Project AI Assistant")
 st.write(f"I am actively monitoring **{st.session_state['active_project_id']}**.")
-
-# Simple Chat Placeholder
-chat_input = st.chat_input("Ask something about the project...")
+st.write("Use the voice orb below to interact with the project context.")
 
 # ----------------- ElevenLabs Orb Integration Widget -----------------
 def render_elevenlabs_orb():
@@ -43,11 +41,15 @@ def render_elevenlabs_orb():
         return
         
     html_code = f"""
-    <div style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+    <div style="display: flex; justify-content: flex-end; padding: 5px;">
         <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
         <elevenlabs-convai agent-id="{ELEVENLABS_AGENT_ID}"></elevenlabs-convai>
     </div>
+    <style>
+        body {{ background-color: transparent !important; }}
+    </style>
     """
-    st.html(html_code)
+    # Use components.v1 for JS widget execution, give it enough height for the popup to open
+    st.components.v1.html(html_code, height=600, width=400)
 
 render_elevenlabs_orb()
