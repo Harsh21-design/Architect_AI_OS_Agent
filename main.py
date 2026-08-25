@@ -2,11 +2,9 @@ import streamlit as st
 import os
 from dotenv import load_dotenv
 
-# Load environment configurations
 load_dotenv()
 ELEVENLABS_AGENT_ID = os.getenv("ELEVENLABS_AGENT_ID", "")
 
-# Page configuration for a clean, default dashboard
 st.set_page_config(
     page_title="Architecte OS",
     page_icon="📐",
@@ -14,13 +12,11 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ----------------- Mock Session State (Simulating Platform Handoff) -----------------
 if "studio_id" not in st.session_state:
     st.session_state["studio_id"] = "studio_alpha"
 if "active_project_id" not in st.session_state:
     st.session_state["active_project_id"] = "barkly_house"
 
-# ----------------- Sidebar (Context Info) -----------------
 with st.sidebar:
     st.title("Architecte OS")
     st.markdown("---")
@@ -29,13 +25,11 @@ with st.sidebar:
     st.markdown("---")
     st.caption("Connected to Architecte Platform (Mock Environment)")
 
-# ----------------- Main Dashboard -----------------
 st.title("Workspace Hub")
 st.subheader("💬 Project AI Assistant")
 st.write(f"I am actively monitoring **{st.session_state['active_project_id']}**.")
 st.write("Use the voice orb below to interact with the project context.")
 
-# ----------------- ElevenLabs Orb Integration Widget -----------------
 def render_elevenlabs_orb():
     if not ELEVENLABS_AGENT_ID:
         return
@@ -49,7 +43,6 @@ def render_elevenlabs_orb():
         body {{ background-color: transparent !important; }}
     </style>
     """
-    # Use components.v1 for JS widget execution, give it enough height for the popup to open
     st.components.v1.html(html_code, height=600, width=400)
 
 render_elevenlabs_orb()
