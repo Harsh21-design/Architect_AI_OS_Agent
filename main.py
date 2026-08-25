@@ -8,7 +8,7 @@ ELEVENLABS_AGENT_ID = os.getenv("ELEVENLABS_AGENT_ID", "")
 st.set_page_config(
     page_title="Architecte OS",
     page_icon="📐",
-    layout="wide",
+    layout="centered",
     initial_sidebar_state="expanded"
 )
 
@@ -35,14 +35,14 @@ def render_elevenlabs_orb():
         return
         
     html_code = f"""
-    <div style="display: flex; justify-content: flex-end; padding: 5px;">
-        <script src="https://elevenlabs.io/convai-widget/index.js" async type="text/javascript"></script>
+    <div style="display: flex; justify-content: flex-end; padding: 25px;">
         <elevenlabs-convai agent-id="{ELEVENLABS_AGENT_ID}"></elevenlabs-convai>
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     </div>
     <style>
         body {{ background-color: transparent !important; }}
     </style>
     """
-    st.components.v1.html(html_code, height=600, width=400)
+    st.components.v1.html(html_code, height=400, width=400)
 
 render_elevenlabs_orb()
