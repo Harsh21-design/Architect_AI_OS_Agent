@@ -11,7 +11,7 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="expanded"
 )
-// DEMO STUDIO & PROJECT
+# DEMO STUDIO & PROJECT
 if "studio_id" not in st.session_state:
     st.session_state["studio_id"] = "studio_alpha"
 if "active_project_id" not in st.session_state:
