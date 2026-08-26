@@ -3,7 +3,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-ELEVENLABS_AGENT_ID = os.getenv("ELEVENLABS_AGENT_ID", "")
+ELEVENLABS_AGENT_ID = os.getenv("ELEVENLABS_AGENT_ID")
 
 st.set_page_config(
     page_title="Architecte OS",
@@ -32,17 +32,39 @@ st.write("Use the voice orb below to interact with the project context.")
 
 def render_elevenlabs_orb():
     if not ELEVENLABS_AGENT_ID:
-        return
+        return            
+    st.markdown("""
+        <style>
+            iframe {
+                position: fixed !important;
+                bottom: 0px !important;
+                right: 0px !important;
+                z-index: 999999 !important;
+                border: none !important;
+                pointer-events: auto !important;
+            }
+        </style>
+    """, unsafe_allow_html=True)
         
     html_code = f"""
-    <div style="display: flex; justify-content: flex-end; padding: 25px;">
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            body {{
+                margin: 0;
+                padding: 0;
+                background-color: transparent !important;
+                overflow: hidden;
+            }}
+        </style>
+    </head>
+    <body>
         <elevenlabs-convai agent-id="{ELEVENLABS_AGENT_ID}"></elevenlabs-convai>
         <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-    </div>
-    <style>
-        body {{ background-color: transparent !important; }}
-    </style>
+    </body>
+    </html>
     """
-    st.components.v1.html(html_code, height=400, width=400)
+    st.components.v1.html(html_code, height=500, width=350)
 
 render_elevenlabs_orb()
