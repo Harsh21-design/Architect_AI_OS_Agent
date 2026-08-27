@@ -18,11 +18,11 @@ st.markdown("""
         }
         /* Make the Chat Input physically smaller by adding a huge right margin */
         [data-testid="stChatInput"] {
-            margin-right: 350px !important;
+            margin-right: 250px !important;
             width: auto !important;
         }
         [data-testid="stBottomBlockContainer"] {
-            padding-right: 350px !important;
+            padding-right: 250px !important;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -44,7 +44,7 @@ with st.sidebar:
 st.title("Workspace Hub")
 st.subheader("💬 Project AI Assistant")
 st.write(f"I am actively monitoring **{st.session_state['active_project_id']}**.")
-st.caption("Use the chat box below for silent text mode,\n\nor the voice orb in the corner for voice mode.")
+st.caption("Use the chat box below for silent text mode, or the voice orb in the corner for voice mode.")
 st.markdown("---")
 
 # MOCK CHAT INTERFACE (Text-only UI Demo)
