@@ -9,7 +9,7 @@ st.set_page_config(
     page_title="Architecte OS AI",
     page_icon="📐",
     layout="centered",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 # DEMO STUDIO & PROJECT
 if "studio_id" not in st.session_state:
