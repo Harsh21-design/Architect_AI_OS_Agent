@@ -26,7 +26,7 @@ with st.sidebar:
     st.caption("Connected to Architecte Platform (Mock Environment)")
 
 st.title("Workspace Hub")
-st.subheader("💬 Project AI Assistant")
+st.subheader("Architecte Project AI Assistant")
 st.write(f"I am actively monitoring **{st.session_state['active_project_id']}**.")
 st.write("Use the voice orb below to interact with the project context.")
 
